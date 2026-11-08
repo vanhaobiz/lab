@@ -3,277 +3,645 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hành Trình Hạnh Phúc | Kỹ Sư, Kiến Trúc Sư Cuộc Sống xAI & Marathoner</title>
+    <title>Kho Bài Học Đời Mới xAI | Thân – Tâm – Trí Cấp Số Nhân</title>
     <style>
         :root {
-            --primary: #1b4332;
-            --secondary: #2d6a4f;
-            --accent: #52b788;
-            --light-bg: #f7f9f6;
-            --text-color: #2c3e50;
-            --card-bg: #ffffff;
+            --bg: #0b1120;
+            --card: #151f32;
+            --card-hover: #1e293b;
+            --accent: #38bdf8;
+            --emerald: #10b981;
+            --amber: #f59e0b;
+            --purple: #a855f7;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.09);
         }
-        
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at top right, #1e293b 0%, #0b1120 65%);
+            color: var(--text);
+            line-height: 1.65;
+            min-height: 100vh;
+            padding-bottom: 4rem;
         }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #ffffff;
-            padding: 60px 20px;
+        /* Hero Header */
+        header.hero {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(56, 189, 248, 0.14));
+            border-bottom: 1px solid var(--border);
+            padding: 3.5rem 1.5rem 2.5rem;
             text-align: center;
-            border-bottom: 5px solid var(--accent);
+        }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem; }
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.18);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            padding: 0.4rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: 0.3px; }
+        .subtitle {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+        }
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.2rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.65rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none !important;
+        }
+        .btn-primary { background: var(--emerald); color: #052e16; }
+        .btn-primary:hover { background: #34d399; }
+        .btn-secondary { background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.35); }
+        .btn-secondary:hover { background: rgba(56, 189, 248, 0.25); }
+
+        /* Controls (Search + Filter Tabs) */
+        .controls {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .controls-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .search-box {
+            flex: 1 1 320px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.6rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.16);
+            background: #131c2e;
+            color: var(--text);
+            font-size: 0.98rem;
+            outline: none;
+        }
+        .search-box input:focus { border-color: var(--accent); }
+        .search-icon {
+            position: absolute;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tab-btn {
+            background: #151f32;
+            color: var(--muted);
+            border: 1px solid var(--border);
+            padding: 0.55rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent);
+            color: #0b1120;
+            border-color: var(--accent);
         }
 
-        header h1 {
-            font-size: 28pt;
-            margin: 0 0 18px 0;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        header p.subtitle {
-            font-size: 13.5pt;
-            max-width: 860px;
-            margin: 0 auto;
-            opacity: 0.96;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 920px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .meta-box {
-            background-color: var(--card-bg);
-            border-left: 6px solid var(--secondary);
-            padding: 20px 25px;
-            margin-bottom: 35px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-radius: 0 8px 8px 0;
-            font-size: 11pt;
-        }
-
-        .meta-box p {
-            margin: 0;
-            text-align: left;
-        }
-
-        section {
-            background-color: var(--card-bg);
-            margin-bottom: 30px;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        h2 {
-            font-size: 18pt;
-            color: var(--primary);
-            border-bottom: 2px solid #b7e4c7;
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        p {
-            margin: 0 0 15px 0;
-            text-align: justify;
-            font-size: 11.5pt;
-        }
-
-        .intro-flex {
+        /* Section Headings */
+        .section-block { margin-bottom: 3rem; }
+        .section-title {
+            font-size: 1.55rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid rgba(56, 189, 248, 0.25);
             display: flex;
             align-items: center;
-            gap: 32px;
-            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
-        .intro-photo {
-            flex: 0 0 240px;
-            margin: 0 auto;
-            text-align: center;
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.35rem;
         }
-
-        .intro-photo img {
-            width: 240px;
-            height: 290px;
-            object-fit: cover;
-            object-position: center top;
-            border-radius: 12px;
-            border: 4px solid var(--accent);
-            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.18);
-        }
-
-        .intro-photo span {
-            display: block;
-            margin-top: 10px;
-            font-size: 9.5pt;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .intro-text {
-            flex: 1 1 480px;
-        }
-
-        .quote {
-            background-color: #e9f5ed;
-            border-left: 4px solid var(--accent);
-            padding: 20px;
-            margin: 25px 0;
-            font-style: italic;
-            color: var(--secondary);
-            font-weight: 500;
-            border-radius: 0 6px 6px 0;
-            font-size: 11.5pt;
-        }
-
-        .media-showcase {
-            margin-top: 28px;
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
         }
-
-        .figure-box {
-            margin: 0;
-            background: #f8faf9;
-            border: 1px solid #d8f3dc;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.45);
         }
-
-        .figure-box img,
-        .figure-box video {
-            width: 100%;
-            display: block;
-            max-height: 540px;
-            object-fit: cover;
+        .card-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
         }
+        .tag-prompt { background: rgba(168, 85, 247, 0.18); color: #c084fc; }
+        .tag-lesson { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+        .tag-wisdom { background: rgba(245, 158, 11, 0.18); color: #fbbf24; }
+        .tag-link { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
 
-        .figure-caption {
-            padding: 14px 18px;
-            font-size: 10.5pt;
-            color: var(--primary);
+        .card h3 { font-size: 1.18rem; margin-bottom: 0.6rem; color: #fff; }
+        .card p, .card ul { color: #cbd5e1; font-size: 0.94rem; margin-bottom: 1rem; }
+        .card ul { padding-left: 1.2rem; }
+        .card li { margin-bottom: 0.35rem; }
+
+        .prompt-box {
+            background: #090e1a;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 0.9rem;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.86rem;
+            color: #e2e8f0;
+            max-height: 210px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-bottom: 1rem;
+        }
+        .copy-btn {
+            background: rgba(168, 85, 247, 0.2);
+            color: #d8b4fe;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            padding: 0.5rem 0.95rem;
+            border-radius: 8px;
             font-weight: 600;
-            text-align: center;
-            background: #ffffff;
-            border-top: 1px solid #e9f5ed;
+            font-size: 0.85rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover { background: var(--purple); color: #fff; }
+
+        /* Raw Archive Box */
+        .raw-viewer {
+            background: #090e1a;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            white-space: pre-wrap;
+            color: #e2e8f0;
+            max-height: 750px;
+            overflow-y: auto;
+            line-height: 1.75;
+            font-size: 0.96rem;
         }
 
-        .footer-note {
+        footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 30px;
-            font-size: 10pt;
-            color: #7f8c8d;
-            border-top: 1px solid #dcdcdc;
-            background-color: #ffffff;
-        }
-
-        .footer-note p {
-            text-align: center;
-            margin: 0;
-        }
-
-        @media (max-width: 700px) {
-            header h1 { font-size: 22pt; }
-            header p.subtitle { font-size: 11.5pt; }
-            section { padding: 25px 20px; }
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>HÀNH TRÌNH HẠNH PHÚC</h1>
-        <p class="subtitle">Từ đôi bàn tay thợ lành nghề đến người kỹ sư giàu kinh nghiệm xây dựng cuộc sống phồn hoa phố thị Sài Gòn, và kiến trúc sư kiến tạo cuộc sống xAI, người truyền lửa phổ cập công nghệ AI đến cho cộng đồng từ những bước chân đầu tiên, thành một Marathoner đầy cảm hứng</p>
-    </header>
-
+<header class="hero">
     <div class="container">
-        <div class="meta-box">
-            <p><strong>Lĩnh vực:</strong> Kỹ sư Xây dựng & Cơ Điện Lạnh (HVAC/MEP) &nbsp;|&nbsp; <strong>Sứ mệnh:</strong> Kiến trúc sư Cuộc sống xAI & Phổ cập AI &nbsp;|&nbsp; <strong>Marathoner:</strong> BIB M 80137 &nbsp;|&nbsp; Sài Gòn – TP. Hồ Chí Minh</p>
+        <span class="badge">🚀 KHO TRI THỨC & THỰC HÀNH • ĐỜI MỚI xAI</span>
+        <h1>Kho Bài Học Đời Mới xAI</h1>
+        <p class="subtitle">
+            Hệ thống hóa toàn bộ bài học, triết lý <strong>Thân – Tâm – Trí cấp số nhân</strong>, kho sách quý, liên kết NotebookLM và bộ câu lệnh (Prompts) & Trợ lý <strong>GEM</strong> thực chiến từ chương trình <strong>Đời Mới xAI</strong>.
+        </p>
+        <div class="quick-actions">
+            <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1ocxH2RHM102z7WHl8j0ab8IWcptEtVJX?usp=sharing" target="_blank">📚 Mở Kho 100+ Sách Quý (Google Drive)</a>
+            <a class="btn btn-secondary" href="https://docs.google.com/document/d/1RLz2CqWSL7x5NRrS0O7iA-Ql8_8BoHwuIhT7Dnct4q4/edit?tab=t.0" target="_blank">📄 Mở Google Docs Gốc</a>
+            <a class="btn btn-secondary" href="./BAI_HOC_DOI_MOI_XAI.md" target="_blank">📥 Xem File Markdown (.md)</a>
+            <a class="btn btn-secondary" href="https://vanhaobiz.github.io/hanh-trinh-hanh-phuc/" target="_blank">🌟 Hành Trình Hạnh Phúc</a>
+            <a class="btn btn-secondary" href="https://vanhaobiz.github.io/portal-hub/" target="_blank">🌐 Trung Tâm Quản Trị</a>
         </div>
+    </div>
+</header>
 
-        <section>
-            <h2>Lời Mở Đầu</h2>
-            <div class="intro-flex">
-                <div class="intro-photo">
-                    <img src="portrait.png" alt="Chân dung Kỹ sư & Kiến trúc sư cuộc sống xAI">
-                    <span>Kỹ sư • Kiến trúc sư cuộc sống xAI</span>
+<div class="controls">
+    <div class="container controls-inner">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Tìm nhanh bài học, câu lệnh GEM, sách, ngày học (VD: 5 giờ sáng, Reels, Logical Levels, Biết ơn)...">
+        </div>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterCategory('all', this)">Tất Cả</button>
+            <button class="tab-btn" onclick="filterCategory('prompt', this)">🤖 Kho Câu Lệnh & GEM</button>
+            <button class="tab-btn" onclick="filterCategory('lesson', this)">🗓️ Nhật Ký 22 Buổi Học</button>
+            <button class="tab-btn" onclick="filterCategory('wisdom', this)">💎 Triết Lý & Công Thức</button>
+            <button class="tab-btn" onclick="filterCategory('link', this)">🔗 Liên Kết & Công Cụ</button>
+            <button class="tab-btn" onclick="filterCategory('raw', this)">📜 Nguyên Văn Đầy Đủ</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- 1. KHO CÂU LỆNH & GEM -->
+    <div class="section-block category-section" data-cat="prompt">
+        <h2 class="section-title">🤖 Kho Câu Lệnh (Prompts) & Thiết Kế Trợ Lý GEM (Bấm Để Copy)</h2>
+        <div class="grid">
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-prompt">Prompt Đào Tạo & Slide</span>
+                    <h3>Tạo Slide Deck 22 Trang Viết & Vẽ Tay Truyền Cảm Hứng</h3>
+                    <p>Dùng trong Gemini / NotebookLM để tạo bài trình bày cho học viên đi làm (31–58 tuổi) rèn luyện Thân – Tâm – Trí cấp số nhân.</p>
+                    <div class="prompt-box" id="p1">Tạo bản trình bày (slide deck) với 22 trang slide thật ấn tượng, thật truyền cảm hứng vẽ và viết tay tươi đẹp. Mục đích để tôi làm bài đào tạo thật ấn tượng, dễ hiểu, dễ nhớ, dễ áp dụng cho học viên của tôi là những người đi làm ở Việt Nam có tuổi đời từ 31 đến 58. Họ chỉ có thời gian học vào buổi tối từ 20h00 - 22h00 tối Thứ Tư và Tối Thứ Bảy hàng tuần. Ban ngày họ cần tự chủ động thực hành chuyển hoá bài học. Hàng sáng tôi cùng họ thiền chạy bộ như câu lạc bộ 5 A.M của tác giả Robin Sharma của cuốn sách: Làm Chủ Bình Minh Sống Đời Xuất Chúng.
+Trong ngày họ chủ động thực hành chuyển hoá bài học vào cuộc sống, công việc của họ một cách hiệu quả. Tự khai thông giác ngộ ra những triết lý, bài học sâu sắc tạo giá trị cho cuộc đời. Khoá học của tôi là đào tạo Phát Triển Bản Thân toàn diện cho họ về Thân - Tâm - Trí cấp số nhân trong kỷ nguyên ứng dụng trí tuệ xAI hiệu quả và phù hợp nhất với họ.</div>
                 </div>
-                <div class="intro-text">
-                    <p>Một mình rời quê lên phố với hai bàn tay trắng, chắt chiu từng giọt mồ hôi nơi xưởng máy để bước vào cổng trường Đại học ở tuổi 24. Hôm nay, giữa những tòa cao ốc rực sáng của phố thị Sài Gòn – TP. Hồ Chí Minh phồn hoa, giàu đẹp và nghĩa tình, tôi nhìn lại hành trình ấy bằng nụ cười hạnh phúc khi băng qua vạch đích cuộc đời.</p>
-                    <p>Đó là chặng đường vươn lên không ngừng nghỉ: từ đôi bàn tay người thợ lành nghề trở thành người kỹ sư giàu kinh nghiệm xây dựng phố thị Sài Gòn, bước tiếp thành <strong>kiến trúc sư kiến tạo cuộc sống xAI</strong> — người truyền lửa phổ cập công nghệ AI đến cho cộng đồng từ những bước chân đầu tiên, và trở thành một <strong>Marathoner đầy cảm hứng</strong>.</p>
+                <button class="copy-btn" onclick="copyText('p1', this)">📋 Sao chép câu lệnh</button>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-prompt">Chỉ Dẫn GEM Thực Chiến</span>
+                    <h3>GEM Bậc Thầy Facebook Reels Triệu View (4 Phần Copy-Paste)</h3>
+                    <p>Tự động xuất ra 4 phần: Tiêu đề IN HOA (Hook), Chữ trên màn hình dọc 9:16, Caption + Hashtag và Gợi ý Âm nhạc.</p>
+                    <div class="prompt-box" id="p2">Vai trò (Persona): Bạn là một Chuyên gia Sáng tạo Nội dung và Bậc thầy Viral Marketing cho Facebook Reels. Nhiệm vụ của bạn là tạo ra nội dung đầu ra cực kỳ tinh gọn, 100% sẵn sàng để người dùng sao chép và dán trực tiếp (copy-paste) mà không cần chỉnh sửa hay xóa bỏ các câu chữ giải thích thừa thãi.
+Mục tiêu (Goals): Khi nhận được bất kỳ chủ đề, văn bản, ý tưởng hay hình ảnh nào, hãy lập tức xuất ra đúng 4 phần sau:
+1. Tiêu đề (Hook): Tạo 3 lựa chọn tiêu đề siêu hấp dẫn, giật tít. BẮT BUỘC VIẾT HOA TOÀN BỘ CÁC CHỮ CÁI. Không giải thích.
+2. Chữ trên màn hình (On-screen Text): Chia nhỏ nội dung thành các dòng văn bản ngắn gọn (6-8 từ/dòng) phù hợp cho màn hình dọc 9:16 (chiếm tối đa 1/2 màn hình). TUYỆT ĐỐI KHÔNG ghi chú thời gian, chỉ liệt kê các dòng text thuần túy nối tiếp nhau.
+3. Mô tả (Caption) & Hashtag: Viết một đoạn văn duy nhất bao gồm phần caption ngắn gọn, súc tích (kèm kêu gọi hành động) và nối tiếp bằng 5-7 hashtag thịnh hành.
+4. Gợi ý Âm nhạc (Trending Audio): Đưa ra 1-2 câu ngắn gọn gợi ý tên thể loại nhạc hoặc phong cách âm thanh phù hợp nhất.
+Quy tắc: Không bao giờ xin lỗi, chào hỏi hay thêm câu giao tiếp thừa thãi. Đi thẳng vào 4 phần nội dung.</div>
                 </div>
+                <button class="copy-btn" onclick="copyText('p2', this)">📋 Sao chép chỉ dẫn GEM</button>
             </div>
-        </section>
 
-        <section>
-            <h2>Chương I: Chuyến Xe Đêm Lên Phố & Đôi Bàn Tay Thợ Lành Nghề</h2>
-            <p>Ai trong đời cũng có một điểm xuất phát, và điểm xuất phát của tôi bắt đầu từ một chiếc ba lô bạc màu trên chuyến xe khách tiến về thành phố Hồ Chí Minh. Khi ấy, tôi chỉ là một chàng trai trẻ một mình rời quê hương, mang theo hành trang duy nhất là sức vóc của tuổi trẻ, đôi bàn tay chai sần không ngại việc khó và một khát vọng đổi đời âm ỉ cháy trong lồng ngực.</p>
-            <p>Những năm tháng làm thợ trực tiếp nơi xưởng máy và công trường đã rèn giũa cho tôi đôi bàn tay lành nghề, sự tỉ mỉ, kỷ luật và lòng tự trọng nghề nghiệp. Trong tiếng máy chạy rền vang và những ca làm việc kéo dài 10 đến 12 tiếng mỗi ngày, từng mối hàn, từng đường ống đều được chăm chút bằng tất cả sự tận tâm.</p>
-        </section>
-
-        <section>
-            <h2>Chương II: Tuổi 24 Và Kỳ Tích Dưới Ánh Đèn Vàng Phòng Trọ</h2>
-            <p>Ở tuổi 24 — cái tuổi mà bạn bè đồng trang lứa đã tốt nghiệp đại học và yên bề công việc — tôi lại đưa ra quyết định khiến nhiều người ngỡ ngàng: Ôn thi Đại học. Nhiều người khuyên tôi rằng đã có tay nghề vững, thu nhập ổn định rồi thì cần gì phải khổ cực quay lại từ đầu. Nhưng tôi hiểu rõ, trở ngại lớn nhất của đời người không phải là tuổi tác, mà là sự bằng lòng với giới hạn của chính mình.</p>
-            
-            <div class="quote">
-                "Ban ngày đổ mồ hôi bên máy móc để nuôi sống ước mơ, ban đêm chong đèn bên trang sách cũ để mở lối tương lai. Ở tuổi 24, tôi thi bằng sinh mệnh và nghị lực của một người đàn ông tự lập."
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-prompt">Chỉ Dẫn GEM Cố Vấn</span>
+                    <h3>GEM Hội Đồng Huấn Luyện Viên Tối Thượng (3 Chuyên Gia)</h3>
+                    <p>Hội đồng gồm Nhà Chiến Lược, Nhà Khai Vấn Tâm Lý và Nhà Kiến Tạo Tầm Nhìn giúp mổ xẻ đa chiều mọi mục tiêu cuộc sống.</p>
+                    <div class="prompt-box" id="p3">Vai trò (Persona): Bạn là một "Hội đồng Huấn luyện viên Tối thượng" hàng đầu thế giới về phát triển cá nhân. Bạn đại diện cho 3 chuyên gia xuất chúng với 3 góc nhìn khác biệt:
+- Nhà Chiến lược (The Strategist): Bậc thầy về hiệu suất làm việc, tối ưu hóa quy trình, thiết lập mục tiêu và kỷ luật thép (Sắc bén, thực tế, logic).
+- Nhà Khai vấn Tâm lý (The Psychologist): Chuyên gia về trí tuệ cảm xúc, thấu hiểu nội tâm, chữa lành và vượt qua rào cản vô hình (Đồng cảm, sâu sắc, bao dung).
+- Nhà Kiến tạo Tầm nhìn (The Visionary): Triết gia về thiết kế cuộc đời, tư duy vĩ mô, định hướng dài hạn và cân bằng cuộc sống (Truyền cảm hứng, rộng mở, thông thái).
+Quy tắc ứng xử:
+1. Giai đoạn Khảo sát: Ở câu chào đầu tiên, hãy đặt 3-5 câu hỏi khai quật để chẩn đoán hiện trạng của người dùng.
+2. Phương pháp Họp Hội đồng: Khi người dùng đưa ra vấn đề, lần lượt để 3 chuyên gia đưa ra góc nhìn và phân tích riêng.
+3. Tổng hợp và Hành động: Tóm tắt thành "Kế hoạch Hành động Tối thượng" áp dụng ngay trong 24 giờ tới.</div>
+                </div>
+                <button class="copy-btn" onclick="copyText('p3', this)">📋 Sao chép chỉ dẫn GEM</button>
             </div>
-        </section>
 
-        <section>
-            <h2>Chương III: Người Kỹ Sư Giàu Kinh Nghiệm Xây Dựng Phố Thị Sài Gòn & Kiến Trúc Sư Kiến Tạo Cuộc Sống xAI</h2>
-            <p>Bước vào giảng đường đại học với nền tảng là một người thợ thực chiến, sự kết hợp giữa đôi bàn tay thợ lành nghề và tư duy của người kỹ sư đã giúp tôi bứt phá mạnh mẽ. Trở thành một Kỹ sư giàu kinh nghiệm trong ngành Cơ Điện Lạnh (HVAC/MEP), tôi trực tiếp góp phần xây dựng cuộc sống phồn hoa nơi phố thị Sài Gòn với lòng biết ơn sâu sắc dành cho mảnh đất đã cưu mang và trao cơ hội cho chàng thanh niên nghèo năm ấy.</p>
-            <p>Không dừng lại ở những công trình hiện đại, trước làn sóng cách mạng công nghệ mới, tôi tiếp tục dấn thân trở thành <strong>kiến trúc sư kiến tạo cuộc sống xAI</strong> và là <strong>người truyền lửa phổ cập công nghệ AI đến cho cộng đồng từ những bước chân đầu tiên</strong>. Tôi tâm niệm rằng công nghệ AI phải gần gũi, thiết thực và phục vụ cuộc sống con người — giúp mọi người tự tin tiếp cận, làm chủ công nghệ ngay từ những bước khởi đầu để nâng tầm công việc và cuộc sống.</p>
-        </section>
-
-        <section>
-            <h2>Chương IV: Hành Trình Hạnh Phúc: Thành Một Marathoner Đầy Cảm Hứng</h2>
-            <p>Khi sự nghiệp đã vững vàng, tôi nhận ra thành công trọn vẹn nhất không chỉ đo bằng chức danh, mà đo bằng sức khỏe, sự bình an trong tâm hồn, tinh thần truyền lửa cho cộng đồng và những mối quan hệ chân thành. Tôi tìm đến chạy bộ đường dài (Marathon) như một cách rèn luyện thân - tâm - trí và trở thành một <strong>Marathoner đầy cảm hứng</strong> (BIB M 80137).</p>
-            <p>Những buổi sáng cuối tuần cùng anh chị em đồng đội sải bước dưới hàng dừa xanh mát ở Cần Giờ hay cùng nhau đeo trên ngực tấm huy chương hoàn thành (Finisher), cùng cười vang dưới nắng sớm — đó chính là định nghĩa chân thực nhất của "Hành Trình Hạnh Phúc".</p>
-
-            <div class="media-showcase">
-                <figure class="figure-box">
-                    <img src="marathon-cangio.jpg" alt="VnExpress Marathon Green Paradise Cần Giờ - BIB M 80137">
-                    <figcaption class="figure-caption">
-                        🏅 Cùng những người anh chị em đồng đội chinh phục đường chạy VnExpress Marathon Green Paradise Cần Giờ (BIB M 80137 – thứ 3 từ trái sang).
-                    </figcaption>
-                </figure>
-
-                <figure class="figure-box">
-                    <video controls preload="metadata" poster="marathon-cangio.jpg">
-                        <source src="dau-an-ban-linh.mp4" type="video/mp4">
-                        Trình duyệt của bạn không hỗ trợ phát video.
-                    </video>
-                    <figcaption class="figure-caption">
-                        🎬 Trạm Dấu Ấn Bản Lĩnh – Tinh thần Marathoner đầy cảm hứng: “Mọi chuyện đều có thể! Chúng tôi làm được! Bạn làm được! Yeah!”
-                    </figcaption>
-                </figure>
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-prompt">Siêu Trợ Lý</span>
+                    <h3>Siêu Trợ Lý Tạo GEM (Thiết Kế Mọi Trợ Lý AI)</h3>
+                    <p>Biến bất kỳ ý tưởng, lĩnh vực hoặc hình ảnh nào thành bộ chỉ dẫn GEM hoàn chỉnh (Persona, Goals, Rules, Tone).</p>
+                    <div class="prompt-box" id="p4">Hãy vào vai 'Siêu trợ lý tạo GEM', một chuyên gia hàng đầu thế giới trong việc thiết kế và tối ưu hóa các ứng dụng GEM cho Google Gemini. Nhiệm vụ của bạn là giúp người dùng biến bất kỳ ý tưởng, lĩnh vực hoặc hình ảnh nào thành một công cụ GEM mạnh mẽ và hiệu quả.
+Quy trình thực hiện:
+1) Phân tích và Mô tả: Viết đoạn mô tả ngắn gọn về GEM này, giải thích lý do tại sao GEM hữu ích và giải quyết vấn đề gì.
+2) Xây dựng Chỉ dẫn (Hướng dẫn cho GEM): Cung cấp bộ chỉ dẫn chi tiết gồm: Vai trò (Persona), Mục tiêu (Goals), Quy tắc ứng xử (Rules), và Giọng điệu (Tone), sẵn sàng để sao chép và dán trực tiếp vào Gemini.</div>
+                </div>
+                <button class="copy-btn" onclick="copyText('p4', this)">📋 Sao chép chỉ dẫn GEM</button>
             </div>
-        </section>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-prompt">Prompt Bộ Não Thứ 2</span>
+                    <h3>Nhập Bộ Não Vào AI & Chuyển Ngữ Cảnh Giữa Các Trợ Lý AI</h3>
+                    <p>Trích xuất toàn bộ hồ sơ cá nhân, mục tiêu, mối quan tâm và quy tắc làm việc từ AI cũ sang AI mới (ChatGPT, Claude, Gemini, Grok).</p>
+                    <div class="prompt-box" id="p5">Bạn đang giúp tôi nhập thông tin ngữ cảnh từ một trợ lý AI sang một trợ lý AI khác. Nhiệm vụ của bạn là xem lại các cuộc trò chuyện trước đây của chúng ta và tóm tắt những gì bạn biết về tôi.
+Các danh mục thông tin gồm có (trình bày theo thứ tự này):
+1. Thông tin nhân khẩu học: Tên tôi muốn được gọi, nghề nghiệp, trình độ học vấn và thông tin khái quát về nơi cư trú.
+2. Mối quan tâm và lựa chọn ưu tiên lâu dài.
+3. Mối quan hệ lâu dài đã xác nhận.
+4. Sự kiện, dự án và kế hoạch có ngày tháng cụ thể.
+5. Hướng dẫn: Các quy tắc mà tôi đã nêu rõ yêu cầu từ nay trở đi bạn phải làm theo.</div>
+                </div>
+                <button class="copy-btn" onclick="copyText('p5', this)">📋 Sao chép câu lệnh</button>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-prompt">Prompt Bản Tin AI</span>
+                    <h3>Hội Đồng Trí Tuệ Cập Nhật Bản Tin AI Hàng Ngày</h3>
+                    <p>Tổng hợp, phân tích chuyên sâu các xu hướng mới nhất về Gemini, ChatGPT, Claude, Copilot, Grok, DeepSeek dễ áp dụng.</p>
+                    <div class="prompt-box" id="p6">Tập hợp Hội đồng trí tuệ ưu tú, các cố vấn hàng đầu thế giới trong lĩnh vực đọc kỹ, phân tích, nghiên cứu chuyên sâu các thông tin mới và liên tục cập nhật cho tôi những lĩnh vực quan tâm như trí tuệ AI, các trợ lý AI, Gemini, ChatGPT, Copilot, Grok, DeepSeek. Hàng ngày hãy liên tục chủ động tìm kiếm các nguồn thông tin chính thống, rồi nghiên cứu, phân tích chuyên sâu và tạo ra bảng tóm tắt đủ ngắn gọn, súc tích để cập nhật cho tôi dễ hiểu, dễ nhớ, dễ ứng dụng vào cuộc sống.</div>
+                </div>
+                <button class="copy-btn" onclick="copyText('p6', this)">📋 Sao chép câu lệnh</button>
+            </div>
+        </div>
     </div>
 
-    <div class="footer-note">
-        <p>© 2026 Hành Trình Hạnh Phúc • Tự hào góp phần xây dựng phố thị Sài Gòn – TP. Hồ Chí Minh phồn hoa, kiến tạo cuộc sống xAI và lan tỏa tinh thần Marathoner đầy cảm hứng.</p>
+    <!-- 2. TRIẾT LÝ & CÔNG THỨC CỐT LÕI -->
+    <div class="section-block category-section" data-cat="wisdom">
+        <h2 class="section-title">💎 Triết Lý Sống, Mô Hình Tư Duy & Công Thức Đổi Đời</h2>
+        <div class="grid">
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-wisdom">Công Thức Cuộc Đời</span>
+                    <h3>Công Thức 5 Bước Đạt Mọi Mục Tiêu</h3>
+                    <ul>
+                        <li><strong>Bước 1:</strong> Biết rõ điều mình muốn!</li>
+                        <li><strong>Bước 2:</strong> Biết rõ ai là người giúp mình có được điều mình muốn!</li>
+                        <li><strong>Bước 3:</strong> Biết rõ người đó muốn gì!</li>
+                        <li><strong>Bước 4:</strong> Giúp người đó đạt được điều họ muốn!</li>
+                        <li><strong>Bước 5:</strong> Yêu cầu họ giúp mình đạt được điều mình muốn!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-wisdom">Mô Hình NLP – Robert Dilts</span>
+                    <h3>6 Cấp Độ Nhận Thức (Logical Levels)</h3>
+                    <ul>
+                        <li><strong>1. Môi trường (Environment):</strong> Ở đâu? Khi nào? Với ai?</li>
+                        <li><strong>2. Hành vi (Behavior):</strong> Làm cái gì?</li>
+                        <li><strong>3. Năng lực (Capability):</strong> Làm như thế nào?</li>
+                        <li><strong>4. Niềm tin & Giá trị (Beliefs & Values):</strong> Tại sao?</li>
+                        <li><strong>5. Danh tính (Identity):</strong> Tôi là ai?</li>
+                        <li><strong>6. Tâm linh / Sứ mệnh (Spiritual / Vision):</strong> Vì ai khác?</li>
+                    </ul>
+                    <p><em>Nguyên lý: Thay đổi từ tầng trên sẽ tự động dẫn dắt và thay đổi tầng dưới.</em></p>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-wisdom">Kim Chỉ Nam Đời Mới xAI</span>
+                    <h3>Những Câu Tâm Đắc Truyền Lửa</h3>
+                    <ul>
+                        <li>“Thay ngôn từ đổi cuộc sống – Thay câu lệnh đổi cuộc đời.”</li>
+                        <li>“Sinh ra là bản thể, đừng sống như bản sao, đừng chết như bản nháp.”</li>
+                        <li>“Gán nghĩa ở đâu thì điều hướng tập trung ở đó. Tập trung ở đâu thì chất lượng cuộc sống ở đó.”</li>
+                        <li>“Nắm là bản năng, buông là trí tuệ. Nóng vội là bản năng, bình tĩnh là bản lĩnh.”</li>
+                        <li>“Hương hoa bay theo chiều gió, hương người tử tế ngược gió bay ngàn phương.”</li>
+                        <li>“Hoàn thành hơn hoàn hảo – Biến rác thành hoa – Đưa những thứ bỏ đi thành kiệt tác.”</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-wisdom">Giao Tiếp & Bán Hàng</span>
+                    <h3>Quy Tắc 7-38-55 & Công Thức 5B</h3>
+                    <ul>
+                        <li><strong>Thu nhập:</strong> = 15% Kiến thức + 85% Giao tiếp (mang lại cảm xúc cho khách hàng).</li>
+                        <li><strong>Thông điệp giao tiếp:</strong> 55% Ngôn ngữ cơ thể + 38% Âm điệu + 7% Từ ngữ.</li>
+                        <li><strong>Công thức 5B:</strong> Bạn → Bàn → Bám → Bán → Bám.</li>
+                        <li><strong>5 Xu hướng tương lai:</strong> Người già, Trẻ em, Sức khỏe, Làm đẹp, Người thích sự tiện lợi nhanh nhất.</li>
+                        <li><strong>Bí mật Marketing tối thượng:</strong> Đối xử tử tế với nhau.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- 3. NHẬT KÝ 22 BUỔI HỌC -->
+    <div class="section-block category-section" data-cat="lesson">
+        <h2 class="section-title">🗓️ Nhật Ký Chi Tiết Các Buổi Học Đời Mới xAI (2026)</h2>
+        <div class="grid">
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-lesson">11/03/2026 & 14/03/2026</span>
+                    <h3>Lòng Biết Ơn, Phép Màu & CLB 5 Giờ Sáng</h3>
+                    <ul>
+                        <li>Vượt qua trạng thái trống rỗng bằng vận động thể thao (vRace 18p/km) và cài đặt Lòng Biết Ơn (Sách <em>Phép Màu</em>).</li>
+                        <li>Làm chủ bình minh sống đời xuất chúng (CLB 5 A.M – Robin Sharma).</li>
+                        <li>Nguyên tắc xây dựng thói quen Viên Đá Tảng (Keystone Habits) & Viết 3 trang mỗi sáng.</li>
+                        <li>3 câu hỏi chuyển hóa: Mình đang ở trường hợp nào? Học được bài học gì? Làm gì để tốt hơn?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-lesson">18/03 – 01/04/2026</span>
+                    <h3>Thiết Lập Thói Quen, Điểm Mù Tri Giác & Tử Huyệt Cảm Xúc</h3>
+                    <ul>
+                        <li><strong>18/03:</strong> Giải mã vì sao biết điều tốt nhưng ít người làm được; đi qua cây cầu gieo trồng hạnh phúc.</li>
+                        <li><strong>21/03:</strong> Biến tài năng thành tài sản – Xây dựng GEM sản xuất kịch bản Facebook Reels.</li>
+                        <li><strong>25/03:</strong> Sách <em>Ngày xưa có một con bò</em> – Nhận diện Điểm mù tri giác & cái giá của sự trưởng thành.</li>
+                        <li><strong>01/04:</strong> Tử huyệt cảm xúc, Nghệ thuật quyến rũ & Tôn trọng sự khác biệt.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-lesson">04/04 – 15/04/2026</span>
+                    <h3>Lập Trình Tiềm Thức, Ma Sát Tâm Trí & Bài Học Lịch Sử</h3>
+                    <ul>
+                        <li><strong>04/04:</strong> Thiết kế GEM Huấn luyện viên cá nhân; 10 phút trước khi ngủ & 10 phút sau khi thức dậy là giờ vàng lập trình tiềm thức.</li>
+                        <li><strong>08/04:</strong> Ma sát tâm trí; Công thức: Nhận biết – Liên hệ – Thấu hiểu – Áp dụng.</li>
+                        <li><strong>11/04:</strong> Rút bài học từ lịch sử (nhà Lê – nhà Nguyễn) và câu chuyện cá nhân hóa theo độ tuổi 35–60.</li>
+                        <li><strong>15/04:</strong> Làm xiếc trên ngôn từ; Lựa chọn đúng hơn nỗ lực cố gắng.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-lesson">18/04 – 06/05/2026</span>
+                    <h3>Tuyển Dụng AI, Sống Chủ Động & Tư Duy Hỏi ("Học Bằng AI Dạy AI")</h3>
+                    <ul>
+                        <li><strong>18/04:</strong> Bí mật hạnh phúc & 10 kỹ năng quan trọng; Tuyển dụng AI và giao việc cho AI.</li>
+                        <li><strong>22/04:</strong> Điểm mù tâm trí; Siêu trợ lý tạo GEM & Công thức 5 bước cuộc đời.</li>
+                        <li><strong>25/04:</strong> Sống ở thế chủ động, luyện nói là luyện cho đi; Tạo video bằng Google Flow.</li>
+                        <li><strong>06/05:</strong> Tư duy hỏi (Alt + G hỏi Gemini trực tiếp); Dùng AI hỏi ngược lại mình để tối ưu mục tiêu.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-lesson">09/05 – 30/05/2026</span>
+                    <h3>Huấn Luyện Cảm Xúc, 8 Tầng Nhận Thức & Hương Người Tử Tế</h3>
+                    <ul>
+                        <li><strong>09/05 – 12/05:</strong> 5 xu hướng thị trường; Sách <em>Nhà lãnh đạo không chức danh</em>; Sự cân bằng Thân – Tâm – Trí.</li>
+                        <li><strong>16/05:</strong> GEM lấy nguồn YouTube tự động & Công thức 5B.</li>
+                        <li><strong>23/05 – 28/05:</strong> 6 trạng thái cảm xúc; Chất lượng cuộc sống tương ứng với chất lượng gán nghĩa.</li>
+                        <li><strong>30/05:</strong> 8 tầng nhận thức của con người; Câu trích dẫn Thiền sư Thích Nhất Hạnh về Hoa Sen.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-lesson">03/06 – 07/11/2026</span>
+                    <h3>Doanh Nghiệp 1 Người, Ikigai, Sứ Mệnh & Làm Chủ Antigravity</h3>
+                    <ul>
+                        <li><strong>03/06 – 06/06:</strong> Mô hình Doanh nghiệp 1 người (nhân bản & tự động hóa bằng AI); Triết lý Ikigai.</li>
+                        <li><strong>10/06 – 17/06:</strong> 7 bước kể chuyện; Tạo nhạc bằng Gemini; 16 đặc điểm nhận diện Sứ mệnh cuộc đời.</li>
+                        <li><strong>24/06 – 15/07:</strong> Tri túc giàu tối thượng; 6 cấp độ nhận thức NLP; Bài học ngọn nến 15 phút; Cố vấn Bill Campbell.</li>
+                        <li><strong>22/07 – 07/11:</strong> Tốt nghiệp Đời mới xAI & Thực chiến làm chủ Google Antigravity + Quản trị hệ thống Website tự động trên GitHub.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. KHO LIÊN KẾT & CÔNG CỤ -->
+    <div class="section-block category-section" data-cat="link">
+        <h2 class="section-title">🔗 Kho Liên Kết NotebookLM, Trợ Lý GEM, Sách Quý & Công Cụ AI</h2>
+        <div class="grid">
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-link">Kho Sách & Tài Liệu Google</span>
+                    <h3>Kho Sách Quý & Tài Liệu Học Tập</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/folders/1ocxH2RHM102z7WHl8j0ab8IWcptEtVJX?usp=sharing" target="_blank">📁 Kho 100+ Sách Quý Phát Triển Bản Thân (Google Drive)</a></li>
+                        <li><a href="https://docs.google.com/document/d/1RLz2CqWSL7x5NRrS0O7iA-Ql8_8BoHwuIhT7Dnct4q4/edit?tab=t.0" target="_blank">📄 Tài liệu gốc: Bài học Đời mới xAI</a></li>
+                        <li><a href="https://docs.google.com/document/d/19xru4mzn7v40OX-DiO2be4_1-tCTvwaa-2mouqav2e4/edit?usp=sharing" target="_blank">📘 Tài liệu học tập từ Google</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-link">Trợ Lý GEM Thực Chiến</span>
+                    <h3>Danh Sách Các Trợ Lý GEM Đã Đóng Gói</h3>
+                    <ul>
+                        <li><a href="https://gemini.google.com/gem/1NnlJFclRsq7jIvFNqK8CR8Cjuea2hAK5?usp=sharing" target="_blank">✨ Siêu Trợ Lý Tạo GEM</a></li>
+                        <li><a href="https://gemini.google.com/gem/1-VEZqHhgwcBG_jaH9UQCx0wD2k4yp0dt?usp=sharing" target="_blank">📰 GEM Câu Lệnh Bản Tin</a></li>
+                        <li><a href="https://gemini.google.com/gem/1Frjwa_47afOO-_RzdTC596SZ7HpDthqF?usp=sharing" target="_blank">🎬 GEM Tạo Kịch Bản Reels (Bản 1)</a></li>
+                        <li><a href="https://gemini.google.com/gem/1BWDDnRHp24zzHR_htgkFPfbWmBYe5B4C?usp=sharing" target="_blank">🔥 GEM Tạo Reel Từ Video (Bản Tối Ưu)</a></li>
+                        <li><a href="https://gemini.google.com/gem/1YjZv5UzskvCmquaqAz-8JDu9Z2OkYrIN?usp=sharing" target="_blank">📺 GEM Lấy Nguồn YouTube</a></li>
+                        <li><a href="https://gemini.google.com/share/34ffaf32cfab" target="_blank">💡 Gemini Share – Đời Ngắn Đừng Ngủ Dài</a></li>
+                        <li><a href="https://gemini.google.com/share/e38a120f84c7" target="_blank">💡 Gemini Share – Tối Ưu Nội Dung</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-link">Sổ Tay NotebookLM</span>
+                    <h3>Hệ Thống Sổ Tay Trí Tuệ NotebookLM</h3>
+                    <ul>
+                        <li><a href="https://notebooklm.google.com/notebook/d46d4611-c39d-4131-a11f-48b9ce906a62" target="_blank">📗 Bí Mật Hạnh Phúc</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/b4adefa1-3ebe-4b07-a957-91caef0d5ef9" target="_blank">📘 10 Kỹ Năng Quan Trọng & Tuyển Dụng AI</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/a1126697-9e0b-4531-a02a-3332a7983ff5/artifact/2448d25f-a52f-4da4-aac3-a962f47c3a73" target="_blank">📙 8 Tầng Nhận Thức Con Người</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/deba5c7d-afe8-4fcd-b30b-81b1ce749412" target="_blank">📒 Sổ Tay Biết Ơn & Chuyển Hóa</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/0f8b4e10-9f61-448d-a4bc-0d5ead71903b" target="_blank">📓 Viết 3 Trang Mỗi Sáng</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/ece2df53-3834-47ea-9d74-7db456ceb542?artifactId=f9aae1a4-7acf-4dab-a297-0b6b630e89d2" target="_blank">📔 Tử Huyệt Cảm Xúc & Nghệ Thuật Quyến Rũ</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/0aeb0e2c-5a38-4add-b908-271d1a3eff08" target="_blank">📕 Tư Duy Simon Sinek (Start With Why)</a></li>
+                        <li><a href="https://notebooklm.google.com/notebook/f757013b-18c6-409e-a66f-a463707b35e7" target="_blank">📘 Tư Duy Tony Robbins</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card searchable">
+                <div>
+                    <span class="card-tag tag-link">Công Cụ AI & Dự Án Web</span>
+                    <h3>Công Cụ Sáng Tạo AI & Dự Án Thực Chiến</h3>
+                    <ul>
+                        <li><a href="https://antigravity.google/download/" target="_blank">🚀 Google Antigravity IDE</a></li>
+                        <li><a href="https://labs.google/fx/vi/tools/flow" target="_blank">🎥 Google Labs Flow (Tạo video & Typography AI)</a></li>
+                        <li><a href="https://notebooklm.google.com/" target="_blank">🧠 Google NotebookLM</a></li>
+                        <li><a href="https://magiceraser.org/" target="_blank">🪄 Magic Eraser (Xóa chi tiết thừa/logo)</a></li>
+                        <li><a href="https://reel.money/tools/remove-veo-watermark" target="_blank">🎬 Công cụ xử lý Video Reels (reel.money)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. NGUYÊN VĂN TOÀN BỘ TÀI LIỆU -->
+    <div class="section-block category-section" data-cat="raw">
+        <h2 class="section-title">
+            <span>📜 Nguyên Văn Toàn Bộ Tài Liệu "Bài Học Đời Mới xAI" (2.176 Dòng)</span>
+            <a class="btn btn-secondary" href="./BAI_HOC_DOI_MOI_XAI.md" target="_blank">Mở Bản Markdown</a>
+        </h2>
+        <div class="raw-viewer" id="rawContainer">Đang tải toàn bộ nội dung tài liệu...</div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2026 <strong>Kho Bài Học Đời Mới xAI</strong> • Lưu trữ & Xuất bản tự động trên GitHub Repository <a href="https://github.com/vanhaobiz/lab" target="_blank">vanhaobiz/lab</a></p>
+    </div>
+</footer>
+
+<script src="./raw-content.js"></script>
+<script>
+    // Render raw content
+    const rawEl = document.getElementById('rawContainer');
+    if (window.RAW_DOC_TEXT) {
+        rawEl.textContent = window.RAW_DOC_TEXT;
+    }
+
+    // Copy button handler
+    function copyText(id, btn) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const old = btn.innerText;
+            btn.innerText = '✅ Đã sao chép vào bộ nhớ tạm!';
+            setTimeout(() => btn.innerText = old, 2000);
+        });
+    }
+
+    // Category filter
+    function filterCategory(cat, btn) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.category-section').forEach(sec => {
+            if (cat === 'all' || sec.getAttribute('data-cat') === cat) {
+                sec.style.display = 'block';
+            } else {
+                sec.style.display = 'none';
+            }
+        });
+    }
+
+    // Search filter
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+        const q = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('.searchable').forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = (!q || text.includes(q)) ? 'flex' : 'none';
+        });
+    });
+</script>
 </body>
 </html>
