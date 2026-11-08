@@ -3,115 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phòng Thí Nghiệm Số (Lab) | vanhaobiz</title>
+    <title>Hành Trình Hạnh Phúc | Kỹ Sư, Kiến Trúc Sư Cuộc Sống xAI & Marathoner</title>
     <style>
         :root {
-            --bg: #090d16;
-            --card: #131c2e;
-            --accent: #10b981;
-            --accent-hover: #059669;
-            --text: #f8fafc;
-            --muted: #94a3b8;
+            --primary: #1b4332;
+            --secondary: #2d6a4f;
+            --accent: #52b788;
+            --light-bg: #f7f9f6;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: radial-gradient(circle at top left, #131c2e, #090d16);
-            color: var(--text);
-            min-height: 100vh;
-            padding: 3rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 28pt;
+            margin: 0 0 18px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        header p.subtitle {
+            font-size: 13.5pt;
+            max-width: 860px;
+            margin: 0 auto;
+            opacity: 0.96;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .meta-box {
+            background-color: var(--card-bg);
+            border-left: 6px solid var(--secondary);
+            padding: 20px 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 0 8px 8px 0;
+            font-size: 11pt;
+        }
+
+        .meta-box p {
+            margin: 0;
+            text-align: left;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-size: 18pt;
+            color: var(--primary);
+            border-bottom: 2px solid #b7e4c7;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 0 0 15px 0;
+            text-align: justify;
+            font-size: 11.5pt;
+        }
+
+        .intro-flex {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .intro-photo {
+            flex: 0 0 240px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-photo img {
+            width: 240px;
+            height: 290px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 12px;
+            border: 4px solid var(--accent);
+            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.18);
+        }
+
+        .intro-photo span {
+            display: block;
+            margin-top: 10px;
+            font-size: 9.5pt;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .intro-text {
+            flex: 1 1 480px;
+        }
+
+        .quote {
+            background-color: #e9f5ed;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--secondary);
+            font-weight: 500;
+            border-radius: 0 6px 6px 0;
+            font-size: 11.5pt;
+        }
+
+        .media-showcase {
+            margin-top: 28px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 28px;
         }
-        .container { max-width: 960px; width: 100%; }
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
+
+        .figure-box {
+            margin: 0;
+            background: #f8faf9;
+            border: 1px solid #d8f3dc;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
-        .badge {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent);
-            padding: 0.4rem 1rem;
-            border-radius: 999px;
-            font-size: 0.85rem;
+
+        .figure-box img,
+        .figure-box video {
+            width: 100%;
+            display: block;
+            max-height: 540px;
+            object-fit: cover;
+        }
+
+        .figure-caption {
+            padding: 14px 18px;
+            font-size: 10.5pt;
+            color: var(--primary);
             font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        h1 { font-size: 2.4rem; margin-bottom: 0.75rem; }
-        p.subtitle { color: var(--muted); font-size: 1.05rem; max-width: 680px; margin: 0 auto; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-        .card {
-            background: var(--card);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 1.75rem;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-        }
-        .card h3 { margin-bottom: 0.6rem; color: var(--accent); }
-        .card p { color: var(--muted); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1.25rem; }
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            color: #090d16;
-            background: var(--accent);
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-        .btn:hover { background: var(--accent-hover); color: #fff; }
-        .btn-outline {
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            margin-left: 0.5rem;
-        }
-        footer {
-            margin-top: 2rem;
             text-align: center;
-            color: var(--muted);
-            font-size: 0.9rem;
+            background: #ffffff;
+            border-top: 1px solid #e9f5ed;
         }
-        footer a { color: var(--accent); text-decoration: none; }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            font-size: 10pt;
+            color: #7f8c8d;
+            border-top: 1px solid #dcdcdc;
+            background-color: #ffffff;
+        }
+
+        .footer-note p {
+            text-align: center;
+            margin: 0;
+        }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 22pt; }
+            header p.subtitle { font-size: 11.5pt; }
+            section { padding: 25px 20px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="badge">🧪 Không Gian Thử Nghiệm & Sáng Tạo</span>
-            <h1>Phòng Thí Nghiệm Số (Lab)</h1>
-            <p class="subtitle">Nơi thử nghiệm giao diện web, công cụ tự động hóa và các ý tưởng công nghệ mới của <strong>vanhaobiz</strong>.</p>
-        </header>
 
-        <div class="grid">
-            <div class="card">
-                <h3>🚀 Thử Nghiệm Giao Diện Web</h3>
-                <p>Các mẫu thiết kế trang đích (Landing Page), bảng điều khiển (Dashboard) và hiệu ứng tương tác hiện đại.</p>
-                <a class="btn" href="https://vanhaobiz.github.io/portal-hub/">Về Trang Chủ Quản Trị</a>
-            </div>
-            <div class="card">
-                <h3>⚙️ Tự Động Hóa GitHub Pages</h3>
-                <p>Hệ thống kết nối trực tiếp từ máy tính cá nhân lên GitHub giúp xuất bản trang web chỉ trong vài giây.</p>
-                <a class="btn" href="https://github.com/vanhaobiz/lab" target="_blank">Xem Mã Nguồn GitHub</a>
-            </div>
+    <header>
+        <h1>HÀNH TRÌNH HẠNH PHÚC</h1>
+        <p class="subtitle">Từ đôi bàn tay thợ lành nghề đến người kỹ sư giàu kinh nghiệm xây dựng cuộc sống phồn hoa phố thị Sài Gòn, và kiến trúc sư kiến tạo cuộc sống xAI, người truyền lửa phổ cập công nghệ AI đến cho cộng đồng từ những bước chân đầu tiên, thành một Marathoner đầy cảm hứng</p>
+    </header>
+
+    <div class="container">
+        <div class="meta-box">
+            <p><strong>Lĩnh vực:</strong> Kỹ sư Xây dựng & Cơ Điện Lạnh (HVAC/MEP) &nbsp;|&nbsp; <strong>Sứ mệnh:</strong> Kiến trúc sư Cuộc sống xAI & Phổ cập AI &nbsp;|&nbsp; <strong>Marathoner:</strong> BIB M 80137 &nbsp;|&nbsp; Sài Gòn – TP. Hồ Chí Minh</p>
         </div>
 
-        <footer>
-            Quản trị bởi <a href="https://github.com/vanhaobiz" target="_blank">@vanhaobiz</a> • <a href="https://vanhaobiz.github.io/portal-hub/">Trung Tâm Quản Trị Website</a>
-        </footer>
+        <section>
+            <h2>Lời Mở Đầu</h2>
+            <div class="intro-flex">
+                <div class="intro-photo">
+                    <img src="portrait.png" alt="Chân dung Kỹ sư & Kiến trúc sư cuộc sống xAI">
+                    <span>Kỹ sư • Kiến trúc sư cuộc sống xAI</span>
+                </div>
+                <div class="intro-text">
+                    <p>Một mình rời quê lên phố với hai bàn tay trắng, chắt chiu từng giọt mồ hôi nơi xưởng máy để bước vào cổng trường Đại học ở tuổi 24. Hôm nay, giữa những tòa cao ốc rực sáng của phố thị Sài Gòn – TP. Hồ Chí Minh phồn hoa, giàu đẹp và nghĩa tình, tôi nhìn lại hành trình ấy bằng nụ cười hạnh phúc khi băng qua vạch đích cuộc đời.</p>
+                    <p>Đó là chặng đường vươn lên không ngừng nghỉ: từ đôi bàn tay người thợ lành nghề trở thành người kỹ sư giàu kinh nghiệm xây dựng phố thị Sài Gòn, bước tiếp thành <strong>kiến trúc sư kiến tạo cuộc sống xAI</strong> — người truyền lửa phổ cập công nghệ AI đến cho cộng đồng từ những bước chân đầu tiên, và trở thành một <strong>Marathoner đầy cảm hứng</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Chương I: Chuyến Xe Đêm Lên Phố & Đôi Bàn Tay Thợ Lành Nghề</h2>
+            <p>Ai trong đời cũng có một điểm xuất phát, và điểm xuất phát của tôi bắt đầu từ một chiếc ba lô bạc màu trên chuyến xe khách tiến về thành phố Hồ Chí Minh. Khi ấy, tôi chỉ là một chàng trai trẻ một mình rời quê hương, mang theo hành trang duy nhất là sức vóc của tuổi trẻ, đôi bàn tay chai sần không ngại việc khó và một khát vọng đổi đời âm ỉ cháy trong lồng ngực.</p>
+            <p>Những năm tháng làm thợ trực tiếp nơi xưởng máy và công trường đã rèn giũa cho tôi đôi bàn tay lành nghề, sự tỉ mỉ, kỷ luật và lòng tự trọng nghề nghiệp. Trong tiếng máy chạy rền vang và những ca làm việc kéo dài 10 đến 12 tiếng mỗi ngày, từng mối hàn, từng đường ống đều được chăm chút bằng tất cả sự tận tâm.</p>
+        </section>
+
+        <section>
+            <h2>Chương II: Tuổi 24 Và Kỳ Tích Dưới Ánh Đèn Vàng Phòng Trọ</h2>
+            <p>Ở tuổi 24 — cái tuổi mà bạn bè đồng trang lứa đã tốt nghiệp đại học và yên bề công việc — tôi lại đưa ra quyết định khiến nhiều người ngỡ ngàng: Ôn thi Đại học. Nhiều người khuyên tôi rằng đã có tay nghề vững, thu nhập ổn định rồi thì cần gì phải khổ cực quay lại từ đầu. Nhưng tôi hiểu rõ, trở ngại lớn nhất của đời người không phải là tuổi tác, mà là sự bằng lòng với giới hạn của chính mình.</p>
+            
+            <div class="quote">
+                "Ban ngày đổ mồ hôi bên máy móc để nuôi sống ước mơ, ban đêm chong đèn bên trang sách cũ để mở lối tương lai. Ở tuổi 24, tôi thi bằng sinh mệnh và nghị lực của một người đàn ông tự lập."
+            </div>
+        </section>
+
+        <section>
+            <h2>Chương III: Người Kỹ Sư Giàu Kinh Nghiệm Xây Dựng Phố Thị Sài Gòn & Kiến Trúc Sư Kiến Tạo Cuộc Sống xAI</h2>
+            <p>Bước vào giảng đường đại học với nền tảng là một người thợ thực chiến, sự kết hợp giữa đôi bàn tay thợ lành nghề và tư duy của người kỹ sư đã giúp tôi bứt phá mạnh mẽ. Trở thành một Kỹ sư giàu kinh nghiệm trong ngành Cơ Điện Lạnh (HVAC/MEP), tôi trực tiếp góp phần xây dựng cuộc sống phồn hoa nơi phố thị Sài Gòn với lòng biết ơn sâu sắc dành cho mảnh đất đã cưu mang và trao cơ hội cho chàng thanh niên nghèo năm ấy.</p>
+            <p>Không dừng lại ở những công trình hiện đại, trước làn sóng cách mạng công nghệ mới, tôi tiếp tục dấn thân trở thành <strong>kiến trúc sư kiến tạo cuộc sống xAI</strong> và là <strong>người truyền lửa phổ cập công nghệ AI đến cho cộng đồng từ những bước chân đầu tiên</strong>. Tôi tâm niệm rằng công nghệ AI phải gần gũi, thiết thực và phục vụ cuộc sống con người — giúp mọi người tự tin tiếp cận, làm chủ công nghệ ngay từ những bước khởi đầu để nâng tầm công việc và cuộc sống.</p>
+        </section>
+
+        <section>
+            <h2>Chương IV: Hành Trình Hạnh Phúc: Thành Một Marathoner Đầy Cảm Hứng</h2>
+            <p>Khi sự nghiệp đã vững vàng, tôi nhận ra thành công trọn vẹn nhất không chỉ đo bằng chức danh, mà đo bằng sức khỏe, sự bình an trong tâm hồn, tinh thần truyền lửa cho cộng đồng và những mối quan hệ chân thành. Tôi tìm đến chạy bộ đường dài (Marathon) như một cách rèn luyện thân - tâm - trí và trở thành một <strong>Marathoner đầy cảm hứng</strong> (BIB M 80137).</p>
+            <p>Những buổi sáng cuối tuần cùng anh chị em đồng đội sải bước dưới hàng dừa xanh mát ở Cần Giờ hay cùng nhau đeo trên ngực tấm huy chương hoàn thành (Finisher), cùng cười vang dưới nắng sớm — đó chính là định nghĩa chân thực nhất của "Hành Trình Hạnh Phúc".</p>
+
+            <div class="media-showcase">
+                <figure class="figure-box">
+                    <img src="marathon-cangio.jpg" alt="VnExpress Marathon Green Paradise Cần Giờ - BIB M 80137">
+                    <figcaption class="figure-caption">
+                        🏅 Cùng những người anh chị em đồng đội chinh phục đường chạy VnExpress Marathon Green Paradise Cần Giờ (BIB M 80137 – thứ 3 từ trái sang).
+                    </figcaption>
+                </figure>
+
+                <figure class="figure-box">
+                    <video controls preload="metadata" poster="marathon-cangio.jpg">
+                        <source src="dau-an-ban-linh.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ phát video.
+                    </video>
+                    <figcaption class="figure-caption">
+                        🎬 Trạm Dấu Ấn Bản Lĩnh – Tinh thần Marathoner đầy cảm hứng: “Mọi chuyện đều có thể! Chúng tôi làm được! Bạn làm được! Yeah!”
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
     </div>
+
+    <div class="footer-note">
+        <p>© 2026 Hành Trình Hạnh Phúc • Tự hào góp phần xây dựng phố thị Sài Gòn – TP. Hồ Chí Minh phồn hoa, kiến tạo cuộc sống xAI và lan tỏa tinh thần Marathoner đầy cảm hứng.</p>
+    </div>
+
 </body>
 </html>
