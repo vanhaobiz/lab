@@ -2175,4 +2175,14 @@ Có nhiều chức năng để lựa chọn. Và có tích hợp AI API Key vào
 
 
 Trên cơ sở máy tính của tôi, tạo app….
- Bài Tập: Tạo skill làm việc với activity.
+ Bài Tập: Tạo skill làm việc với activity. 
+
+
+11/11/2026
+
+
+Google remote chrome
+https://remotedesktop.google.com/?pli=1
+
+
+Tích hợp AI vào ứng dụng tôi tạo ra
